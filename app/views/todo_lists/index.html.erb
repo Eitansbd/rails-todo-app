@@ -1,2 +1,10 @@
-<h1>TodoLists#index</h1>
-<p>Find me in app/views/todo_lists/index.html.erb</p>
+<ul id="lists">
+  <% @todo_lists.each do |list| %>
+  	<li class="">	
+      <%= link_to list do %>
+       	<h2><%= list.name %></h2>
+       	<p>0/0</p>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
