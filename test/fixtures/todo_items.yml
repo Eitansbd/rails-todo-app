@@ -1,9 +1,12 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-# one:
-#   name: MyText
-#   todo_list: one
-
-# two:
-#   name: MyText
-#   todo_list: two
+item1:
+  name: Item 1
+  todo_list: list1
+    
+item2:
+  name: Item 2
+  todo_list: list1
+  
+item2:
+  name: Item 3
+  todo_list: list1
+    
