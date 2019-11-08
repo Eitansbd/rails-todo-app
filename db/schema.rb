@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_08_143201) do
+ActiveRecord::Schema.define(version: 2019_11_08_143406) do
+
+  create_table "todo_items", force: :cascade do |t|
+    t.text "name"
+    t.integer "todo_list_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name", "todo_list_id"], name: "index_todo_items_on_name_and_todo_list_id", unique: true
+    t.index ["todo_list_id"], name: "index_todo_items_on_todo_list_id"
+  end
 
   create_table "todo_lists", force: :cascade do |t|
     t.text "name"
