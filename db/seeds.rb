@@ -6,7 +6,8 @@ DatabaseCleaner.clean_with(:truncation)
   list = TodoList.create(name: "list #{num + 1}")
   
   3.times do |num|
-    list.todo_items.create(name: "item #{num + 1}", complete: completed)
+    completed = num.even?
+    list.todo_items.create(name: "item #{num + 1}", completed: completed)
   end
   
 end
