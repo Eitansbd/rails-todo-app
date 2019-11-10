@@ -11,6 +11,14 @@ class TodoListsController < ApplicationController
   end
 
   def create
+    @todo_list = TodoList.new(todo_list_params)
+    
+    if @todo_list.save
+      flash[:success] = "list #{@todo_list.name} created"
+      redirect_to root_url
+    else
+      render 'new'
+    end
   end
 
   def edit
@@ -25,4 +33,10 @@ class TodoListsController < ApplicationController
   def complete_all
     
   end
+  
+  private
+    
+    def todo_list_params
+      params.require(:todo_list).permit(:name)
+    end
 end
