@@ -288,7 +288,7 @@ form fieldset.actions a:hover {
   background: transparent url("/assets/icon_edit.png") 0 0 no-repeat; 
 }
 
-#todos header ul button {
+#todos header ul a {
   display: inline-block;
   padding: 0;
   border: none;
@@ -301,7 +301,7 @@ form fieldset.actions a:hover {
   -o-transition: color 200ms ease; 
 }
 
-#todos header ul button:before {
+#todos header ul a:before {
   display: inline-block;
   width: 24px;
   height: 24px;
@@ -310,11 +310,11 @@ form fieldset.actions a:hover {
   content: ""; 
 }
 
-#todos header ul button.check:hover {
+#todos header ul a.check:hover {
   color: #00B059; 
 }
 
-#todos header ul button.check:before {
+#todos header ul a.check:before {
   border: 2px solid #3f3f3f;
   background: transparent url("/assets/icon_check.png") 50% 50% no-repeat; 
 }
@@ -368,7 +368,7 @@ form fieldset.actions a:hover {
   margin: -15px 0 0 0; 
 }
 
-#todos > ul li .check [type="submit"] {
+#todos > ul li .check {
   height: 28px;
   width: 28px;
   color: transparent;
@@ -378,7 +378,7 @@ form fieldset.actions a:hover {
   cursor: pointer; 
 }
 
-#todos > ul li .check [type="submit"]:hover {
+#todos > ul li .check:hover {
   border-color: #dd5f4f; 
 }
 
