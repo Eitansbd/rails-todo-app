@@ -18,6 +18,7 @@
       <% flash.each do |msg_type, msg| %>
         <div class="alert alert-<%= msg_type %>"><%= msg %></div>
       <% end %>
+      
       <%= yield %>
     </main>
     
