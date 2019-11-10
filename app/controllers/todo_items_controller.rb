@@ -9,6 +9,12 @@ class TodoItemsController < ApplicationController
   end
 
   def toggle
+    todo_item = TodoItem.find_by(id: params[:todo_item_id], todo_list_id: params[:todo_list_id])
+    
+    todo_item.toggle!(:completed)
+    
+    
+    redirect_to todo_list_url(params[:todo_list_id])
   end
 
   def destroy
