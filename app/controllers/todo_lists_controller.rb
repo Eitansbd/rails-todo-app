@@ -5,7 +5,7 @@ class TodoListsController < ApplicationController
 
   def show
     @todo_list = TodoList.find(params[:id])
-    @todo_items = @todo_list.todo_items
+    @todo_items = @todo_list.todo_items.order(:completed, :created_at) 
   end
 
   def new
