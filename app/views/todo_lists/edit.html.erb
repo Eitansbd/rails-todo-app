@@ -1,2 +1,19 @@
 <% provide(:cancel_url, todo_list_url(@todo_list)) %>
+
+<section id="todos">
+  <header>
+    <h2>Editing <%= @todo_list.name %></h2>
+    <ul>
+      <li>
+        <%= link_to "Delete List", @todo_list, method: :delete,
+                                               class: "delete",
+                                               data: { confirm: "Are you sure?" } %>
+                                               
+      </li>
+    </ul>
+  </header>
+</section>
+
+
+
 <%= render 'form' %>
