@@ -5,9 +5,8 @@ class TodoListsController < ApplicationController
 
   def show
     @todo_list = TodoList.find(params[:id])
-    @todo_items = @todo_list.todo_items.map(&:dup)
+    @todo_items = @todo_list.todo_items
     
-    @todo_item = @todo_list.todo_items.build
   end
 
   def new
