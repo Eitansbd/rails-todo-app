@@ -45,7 +45,7 @@ body > header .actions a.add:before {
   margin: 0 7px 0 0;
   vertical-align: -6px;
   content: "";
-  background: transparent url("../images/icon_add.png") 0 0 no-repeat;
+  background: transparent url("/assets/icon_add.png") 0 0 no-repeat;
   -webkit-transition: transform 200ms linear;
   -moz-transition: transform 200ms linear;
   -o-transition: transform 200ms linear; 
@@ -64,7 +64,7 @@ body > header .actions a.list:before {
   margin: 0 7px 0 0;
   vertical-align: -6px;
   content: "";
-  background: transparent url("../images/icon_list.png") 0 0 no-repeat; 
+  background: transparent url("/assets/icon_list.png") 0 0 no-repeat; 
 }
 
 
@@ -154,7 +154,7 @@ form fieldset.actions a:hover {
 #no_list {
   padding: 128px 0 0 0;
   text-align: center;
-  background: transparent url("../images/arrow_new_list.png") 85% 0 no-repeat; 
+  background: transparent url("/assets/arrow_new_list.png") 85% 0 no-repeat; 
 }
 
 #lists li {
@@ -184,7 +184,7 @@ form fieldset.actions a:hover {
   margin: -15px 0 0 -7px;
   border: 1px solid #666666;
   border-radius: 4px;
-  background: #ffffff url("../images/icon_check.png") 50% 50% no-repeat; 
+  background: #ffffff url("/assets/icon_check.png") 50% 50% no-repeat; 
 }
 
 #lists li.complete h2 {
@@ -285,7 +285,7 @@ form fieldset.actions a:hover {
 
 #todos header ul a.edit:before {
   border: 2px solid transparent;
-  background: transparent url("../images/icon_edit.png") 0 0 no-repeat; 
+  background: transparent url("/assets/icon_edit.png") 0 0 no-repeat; 
 }
 
 #todos header ul button {
@@ -316,7 +316,7 @@ form fieldset.actions a:hover {
 
 #todos header ul button.check:before {
   border: 2px solid #3f3f3f;
-  background: transparent url("../images/icon_check.png") 50% 50% no-repeat; 
+  background: transparent url("/assets/icon_check.png") 50% 50% no-repeat; 
 }
 
 #todos header ul button.delete:hover {
@@ -325,7 +325,7 @@ form fieldset.actions a:hover {
 
 #todos header ul button.delete:before {
   border: 2px solid transparent;
-  background: transparent url("../images/icon_delete.png") 0 0 no-repeat; 
+  background: transparent url("/assets/icon_delete.png") 0 0 no-repeat; 
 }
 
 #todos.complete header h2 {
@@ -388,7 +388,7 @@ form fieldset.actions a:hover {
   height: 27px;
   margin: -12px 0 0 0;
   opacity: 0.4;
-  background: transparent url("../images/icon_delete.png") 0 3px no-repeat; 
+  background: transparent url("/assets/icon_delete.png") 0 3px no-repeat; 
 }
 
 #todos > ul li .delete [type="submit"] {
@@ -410,6 +410,6 @@ form fieldset.actions a:hover {
 }
 
 #todos > ul li.complete .check {
-  background: transparent url("../images/icon_check.png") 50% 50% no-repeat; 
+  background: transparent url("/assets/icon_check.png") 50% 50% no-repeat; 
 }
 
