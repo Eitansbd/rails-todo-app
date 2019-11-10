@@ -1,0 +1,11 @@
+<%= form_for @todo_list do |f| %>
+  <%= label_tag 'name', 'Enter the name for your new list:', class: "list-name-label" %> 
+  <%= f.text_field :name, placeholder: "List Name", class: "list-name-input" %>
+  
+  <%= field_set_tag nil, class: "actions" do %>
+    <%= f.submit "Save" %>
+    
+    <%= link_to "Cancel", yield(:cancel_url) %>
+  <% end %>
+
+<% end %>
