@@ -1,6 +1,6 @@
 class TodoListsController < ApplicationController
   def index
-    @todo_lists = TodoList.all
+    @todo_lists = TodoList.lists_with_item_completed_counts
   end
 
   def show
