@@ -3,7 +3,7 @@
   	<li class="">	
       <%= link_to list do %>
        	<h2><%= list.name %></h2>
-       	<p>0/0</p>
+       	<p><%= list.todo_items_completed %>/<%= list.todo_items_count %></p>
       <% end %>
     </li>
   <% end %>
