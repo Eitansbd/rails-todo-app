@@ -9,4 +9,8 @@ class TodoList < ApplicationRecord
         -> { TodoList.select("todo_lists.*, COUNT(todo_items.id) AS todo_items_count, COUNT(CASE WHEN completed = 't' THEN 1 END) AS todo_items_completed")
         .left_outer_joins(:todo_items)
         .group(:id) }
+        
+  def complete?
+    self.todo_items_count == todo_items_completed
+  end
 end
