@@ -3,12 +3,16 @@
   <head>
     <title>Todo App</title>
     <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'whitespace-reset' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
     <header>
-      <a href="/lists"><h1>To Do Tracker</h1></a>
+      <%= link_to root_url do %>
+        <h1>To Do Tracker</h1></a>
+      <% end %>
+      
       <div class="actions">
         <%= yield(:header_actions) %>
         <!--<a class ="list" href="/lists">All Lists</a>-->
@@ -17,7 +21,7 @@
     
     <main>
       <% flash.each do |msg_type, msg| %>
-        <div class="alert alert-<%= msg_type %>"><%= msg %></div>
+        <div class="flash <%= msg_type %>"><%= msg %></div>
       <% end %>
       
       <%= yield %>
