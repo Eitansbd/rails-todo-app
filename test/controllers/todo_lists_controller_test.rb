@@ -11,20 +11,17 @@ class TodoListsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get show" do
-    get todo_lists_show_url
+    get todo_list_url @todo_list1
     assert_response :success
   end
 
   test "should get new" do
-    get todo_lists_new_url
+    get new_todo_list_url
     assert_response :success
   end
 
   test "should get edit" do
-    get todo_lists_edit_url
+    get edit_todo_list_url @todo_list1
     assert_response :success
   end
-
-
-
 end
