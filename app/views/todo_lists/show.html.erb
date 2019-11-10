@@ -1,2 +1,49 @@
-<h1>TodoLists#show</h1>
-<p>Find me in app/views/todo_lists/show.html.erb</p>
+<% content_for :header_actions do %>
+  <%= link_to "All Lists", root_url, class: "list" %>
+<% end %>
+
+<section id="todos" class="">	
+		<header>
+			<h2><%= @todo_list.name %></h2>
+			<ul>
+				<li>
+					<form action="/lists//complete_all" method="POST">
+						<button class="check" type="submit">Complete All</button>
+					</form>
+				</li>	
+				<li>
+				  <%= link_to "Edit list", edit_todo_list_path(@todo_list), class: "edit" %>
+				</li>
+			</ul>
+		</header>
+
+		<ul>
+			<% @todo_items.each do |todo| %>
+				<li class="incomplete">
+					<form action="/lists/@list[:id]/todo/todo[:id]/toggle" method="post" class="check">
+		 				<input type="hidden" name="completed" value= <%= !todo.completed? %> />
+		  				<button type="submit">Complete</button>
+					</form>
+
+					<h3><%= todo.name %></h3>
+					<form action="/lists/@list[:id]/todo/todo[:id]/destroy" method="post" class="delete">
+						<button type="submit">Delete</button>
+					</form>
+				</li>
+		<% end %>
+		</ul>
+	</section>
+
+
+<%= form_for [@todo_list, @todo_item] do |f| %>
+  <%= label_tag 'name', 'Enter a new todo item:'%> 
+  <%= f.text_field :name, value: "" %>
+  
+  <%= field_set_tag nil, class: "actions" do %>
+    <%= f.submit "Save" %>
+    
+    <%= link_to "Cancel", root_url %>
+  <% end %>
+<% end %>
+
+
