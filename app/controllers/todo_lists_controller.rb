@@ -4,6 +4,10 @@ class TodoListsController < ApplicationController
   end
 
   def show
+    @todo_list = TodoList.find(params[:id])
+    @todo_items = @todo_list.todo_items.map(&:dup)
+    
+    @todo_item = @todo_list.todo_items.build
   end
 
   def new
@@ -23,9 +27,19 @@ class TodoListsController < ApplicationController
   end
 
   def edit
+    @todo_list = TodoList.find(params[:id])
   end
 
   def update
+    @todo_list = TodoList.find(params[:id])
+    
+    if @todo_list.update_attributes(todo_list_params)
+      flash[:success] = "You changed the list name"
+      redirect_to todo_list_url @todo_list
+    else
+      flash[:error] = @todo_list.errors.full_messages.first
+      render 'edit'
+    end
   end
 
   def destroy
