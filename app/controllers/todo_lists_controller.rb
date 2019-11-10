@@ -43,6 +43,11 @@ class TodoListsController < ApplicationController
   end
 
   def destroy
+    TodoList.find(params[:id]).destroy
+    
+    flash[:success] = "List deleted"
+    
+    redirect_to root_url
   end
   
   def complete_all
