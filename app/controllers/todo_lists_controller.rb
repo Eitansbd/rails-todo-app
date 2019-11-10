@@ -6,7 +6,6 @@ class TodoListsController < ApplicationController
   def show
     @todo_list = TodoList.find(params[:id])
     @todo_items = @todo_list.todo_items
-    
   end
 
   def new
@@ -50,7 +49,9 @@ class TodoListsController < ApplicationController
   end
   
   def complete_all
+    TodoItem.where(todo_list_id: params[:todo_list_id]).update_all(completed: true)
     
+    redirect_to todo_list_path(params[:todo_list_id])
   end
   
   private
