@@ -1,3 +1,7 @@
+<% content_for :header_actions do %>
+  <%= link_to "New List", new_todo_list_path, class: "add" %>
+<% end %>
+
 <ul id="lists">
   <% @todo_lists.each do |list| %>
   	<li class="">	
