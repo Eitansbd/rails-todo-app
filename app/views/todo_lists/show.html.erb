@@ -7,9 +7,9 @@
 			<h2><%= @todo_list.name %></h2>
 			<ul>
 				<li>
-					<form action="/lists//complete_all" method="POST">
-						<button class="check" type="submit">Complete All</button>
-					</form>
+				  <%= link_to "Complete All", todo_list_complete_all_path(@todo_list), 
+				                              method: :patch, 
+				                              class: "check" %>
 				</li>	
 				<li>
 				  <%= link_to "Edit list", edit_todo_list_path(@todo_list), class: "edit" %>
@@ -19,11 +19,13 @@
 
 		<ul>
 			<% @todo_items.each do |todo_item| %>
-				<li class="incomplete">
-					<form action="/lists/@list[:id]/todo/todo[:id]/toggle" method="post" class="check">
-		 				<input type="hidden" name="completed" value= <%= !todo_item.completed? %> />
-		  				<button type="submit">Complete</button>
-					</form>
+				<li class="<%= todo_item.completed? ? "complete" : "incomplete" %>">
+				  <%= link_to nil, todo_list_todo_item_toggle_url(@todo_list, todo_item), method: :patch, class: "check" %>
+				  
+					<!--<form action="/lists/@list[:id]/todo/todo[:id]/toggle" method="post" class="check">-->
+		 		<!--		<input type="hidden" name="completed" value= <= !todo_item.completed? %> />-->
+		  	<!--			<button type="submit">Complete</button>-->
+					<!--</form>-->
 
 					<h3><%= todo_item.name %></h3>
 				  <%= link_to "Delete", todo_list_todo_item_path(@todo_list, todo_item), method: :delete, class: "delete", data: { confirm: "Are you sure?" } %>
