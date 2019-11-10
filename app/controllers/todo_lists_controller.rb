@@ -14,9 +14,10 @@ class TodoListsController < ApplicationController
     @todo_list = TodoList.new(todo_list_params)
     
     if @todo_list.save
-      flash[:success] = "list #{@todo_list.name} created"
+      flash[:success] = "You created a new list called #{@todo_list.name}!"
       redirect_to root_url
     else
+      flash.now[:error] = @todo_list.errors.full_messages.first
       render 'new'
     end
   end
