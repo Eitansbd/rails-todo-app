@@ -1,2 +1,2 @@
-<h1>TodoLists#edit</h1>
-<p>Find me in app/views/todo_lists/edit.html.erb</p>
+<% provide(:cancel_url, todo_list_url(@todo_list)) %>
+<%= render 'form' %>
