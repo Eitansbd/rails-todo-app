@@ -319,11 +319,11 @@ form fieldset.actions a:hover {
   background: transparent url("/assets/icon_check.png") 50% 50% no-repeat; 
 }
 
-#todos header ul button.delete:hover {
+#todos header ul a.delete:hover {
   color: #b00b00; 
 }
 
-#todos header ul button.delete:before {
+#todos header ul a.delete:before {
   border: 2px solid transparent;
   background: transparent url("/assets/icon_delete.png") 0 0 no-repeat; 
 }
