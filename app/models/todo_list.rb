@@ -11,6 +11,6 @@ class TodoList < ApplicationRecord
         .group(:id) }
         
   def complete?
-    todo_items_count == todo_items_completed
+    todo_items_count > 0 && todo_items_count == todo_items_completed
   end
 end
