@@ -7,7 +7,7 @@ class TodoList < ApplicationRecord
                   
   scope :all_with_item_completed_counts, 
         -> { TodoList.select("todo_lists.*, COUNT(todo_items.id) AS todo_items_count, COUNT(CASE WHEN completed = 't' THEN 1 END) AS todo_items_completed")
-        .left_outer_joins(:todo_items)
+        .left_outer_joins(:todo_items).order(:created_at)
         .group(:id) }
         
   def complete?
