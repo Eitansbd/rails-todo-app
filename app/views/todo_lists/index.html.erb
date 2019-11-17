@@ -7,7 +7,7 @@
   	<li class="<%= 'complete' if list.complete? %>" >
       <%= link_to list do %>
        	<h2><%= list.name %></h2>
-       	<p><%= list.todo_items_completed %>/<%= list.todo_items_count %></p>
+       	<p><%= list.completed_todos_count %>/<%= list.todo_items.size %></p>
       <% end %>
     </li>
   <% end %>

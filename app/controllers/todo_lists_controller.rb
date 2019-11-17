@@ -1,6 +1,6 @@
 class TodoListsController < ApplicationController
   def index
-    @todo_lists = TodoList.all_with_item_completed_counts
+    @todo_lists = TodoList.eager_load(:todo_items)
   end
 
   def show

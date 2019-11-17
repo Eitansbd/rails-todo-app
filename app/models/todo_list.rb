@@ -5,12 +5,12 @@ class TodoList < ApplicationRecord
                   length: { maximum: 100 },
                   uniqueness: { case_sensitive: false}
                   
-  scope :all_with_item_completed_counts, 
-        -> { TodoList.select("todo_lists.*, COUNT(todo_items.id) AS todo_items_count, COUNT(CASE WHEN completed = 't' THEN 1 END) AS todo_items_completed")
-        .left_outer_joins(:todo_items).order(:created_at)
-        .group(:id) }
-        
   def complete?
-    todo_items_count > 0 && todo_items_count == todo_items_completed
+    todo_items_count = todo_items.size
+    todo_items_count > 0 && todo_items_count == completed_todos_count
+  end
+  
+  def completed_todos_count
+    todo_items.count { |item| item[:completed] }
   end
 end
