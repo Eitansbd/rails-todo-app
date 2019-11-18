@@ -2,8 +2,8 @@ require 'test_helper'
 
 class TodoItemTest < ActiveSupport::TestCase
   def setup
-    @todo_list = TodoList.new(name: "Test List")
-    @todo_item = @todo_list.todo_items.build(name: "Test Item")
+    @todo_list = todo_lists(:list1)
+    @todo_item = todo_items(:item1)
   end
   
   test "should be valid" do 
@@ -24,9 +24,7 @@ class TodoItemTest < ActiveSupport::TestCase
   
   test "name should be unique within same todo list" do
     @duplicate_todo_item = @todo_item.dup
-    @duplicate_todo_item.name.upcase!
-    
-    @todo_list.save
+    @duplicate_todo_item.todo_list = @todo_list
     
     assert_not @duplicate_todo_item.valid?
   end
@@ -37,6 +35,14 @@ class TodoItemTest < ActiveSupport::TestCase
     @todo_list.save
     
     assert @duplicate_todo_list.todo_items.first.valid?
+  end
+  
+  test "item should be destroyed when list is destroyed" do
+    number_of_todo_items = @todo_list.todo_items.count
+    
+    assert_difference "TodoItem.count", -number_of_todo_items do
+      @todo_list.destroy
+    end
   end
 end
 
