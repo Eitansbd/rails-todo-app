@@ -4,4 +4,5 @@ class TodoItem < ApplicationRecord
   validates :name, presence: true, 
                    length: { maximum: 100 },
                    uniqueness: { scope: :todo_list_id }
+                   
 end
