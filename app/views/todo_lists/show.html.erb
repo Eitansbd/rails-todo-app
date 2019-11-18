@@ -2,7 +2,7 @@
   <%= link_to "All Lists", root_url, class: "list" %>
 <% end %>
 
-<section id="todos">	
+<section id="todos", class="<%= list_status_class(@todo_list) %>">	
 		<header>
 			<h2><%= @todo_list.name %></h2>
 			<ul>
@@ -19,27 +19,16 @@
 
 		<ul>
 			<% @todo_items.each do |todo_item| %>
-				<li class="<%= todo_item.completed? ? "complete" : "incomplete" %>">
+				<li class="todo-item <%= todo_item.completed? ? "complete" : "incomplete" %>">
 				  <%= link_to nil, todo_list_todo_item_toggle_url(@todo_list, todo_item), method: :patch, class: "check" %>
-
-					<h3><%= todo_item.name %></h3>
+					<h3 class="item"><%= todo_item.name %></h3>
 				  <%= link_to "Delete", todo_list_todo_item_path(@todo_list, todo_item), method: :delete, class: "delete", data: { confirm: "Are you sure?" } %>
-				
 				</li>
 		<% end %>
 		</ul>
 	</section>
 
+<%= render 'todo_items/form' %>
 
-<%= form_for [@todo_list, @todo_list.todo_items.build] do |f| %>
-  <%= label_tag 'name', 'Enter a new todo item:'%> 
-  <%= f.text_field :name, value: "" %>
-  
-  <%= field_set_tag nil, class: "actions" do %>
-    <%= f.submit "Save" %>
-    
-    <%= link_to "Cancel", root_url %>
-  <% end %>
-<% end %>
 
 

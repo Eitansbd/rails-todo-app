@@ -1,0 +1,10 @@
+<%= form_for [@todo_list, @todo_list.todo_items.build] do |f| %>
+  <%= label_tag 'name', 'Enter a new todo item:'%> 
+  <%= f.text_field :name, value: "" %>
+  
+  <%= field_set_tag nil, class: "actions" do %>
+    <%= f.submit "Save" %>
+    
+    <%= link_to "Cancel", root_url %>
+  <% end %>
+<% end %>
