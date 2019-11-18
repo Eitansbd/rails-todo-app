@@ -4,7 +4,7 @@
 
 <ul id="lists">
   <% @todo_lists.each do |list| %>
-  	<li class="<%= 'complete' if list.complete? %>" >
+  	<li class="<%= list_status_class(list) %>" >
       <%= link_to list do %>
        	<h2><%= list.name %></h2>
        	<p><%= list.completed_todos_count %>/<%= list.todo_items.size %></p>
