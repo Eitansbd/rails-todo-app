@@ -1,6 +1,6 @@
 class TodoListsController < ApplicationController
   def index
-    @todo_lists = TodoList.eager_load(:todo_items)
+    @todo_lists = TodoList.eager_load(:todo_items).order(:created_at)
   end
 
   def show
@@ -41,6 +41,7 @@ class TodoListsController < ApplicationController
   end
 
   def destroy
+    
     TodoList.find(params[:id]).destroy
     
     flash[:success] = "List deleted"
