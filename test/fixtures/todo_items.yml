@@ -8,7 +8,7 @@ item2:
   todo_list: list1
   completed: true
   
-item2:
+item3:
   name: Item 3
   todo_list: list1
   completed: false
